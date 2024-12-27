@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merry Christmas!</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fef5e6;
+            text-align: center;
+            padding: 20px;
+            margin: 0;
+            overflow-y: auto; /* Allow vertical scrolling */
+            height: 100vh; /* Ensure the body takes the full height */
+        }
+
+        /* Background GIFs positioned on the sides */
+        #background {
+            position: fixed;
+            top: 5;
+            width: 20%;
+            height: 20%;
+            z-index: -1; /* Send background behind content */
+            background: url('https://media3.giphy.com/media/Y4P943aTJRCYfperyN/giphy.gif?cid=6c09b952klvseallh31omhkft0z31idwayphr4049zbkzain&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=g') center/cover no-repeat;
+            left: 0;
+        }
+
+        #background-right {
+            position: fixed;
+            top: 9;
+            right: 0;
+            width: 20%;
+            height: 20%;
+            z-index: -1; /* Send background behind content */
+            background: url('https://media.tenor.com/Y5Dv8nOsC9sAAAAM/sin-chan-kiss.gif') center/cover no-repeat;
+        }
+
+        h1 {
+            color: #ff6363;
+            font-size: 3.5em; /* Increased font size */
+            margin-top: 50px;
+            opacity: 0;
+            animation: fadeInText 2s 1s forwards;
+        }
+
+        @keyframes fadeInText {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        p {
+            color: #333;
+            font-size: 2em; /* Increased font size */
+            line-height: 1.8em;
+            opacity: 0;
+            animation: fadeInText 2s 1.5s forwards;
+            max-width: 800px; /* Limit width for readability */
+            margin: 0 auto;
+        }
+
+        .photo {
+            margin: 20px 0;
+            opacity: 0;
+            animation: fadeInImage 2s 2s forwards;
+        }
+
+        @keyframes fadeInImage {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .snowflake {
+            position: absolute;
+            top: -50px;
+            color: #aaa;
+            font-size: 1.5em;
+            animation: fall 5s linear infinite;
+            opacity: 0;
+            animation: fadeInSnowflakes 2s 2.5s forwards, fall 5s linear infinite;
+        }
+
+        @keyframes fadeInSnowflakes {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
+        }
+
+        /* Christmas Lights */
+        .lights {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 15px;
+            opacity: 0;
+            animation: fadeInLights 2s 2.8s forwards;
+        }
+
+        @keyframes fadeInLights {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .light {
+            width: 20px;
+            height: 30px;
+            background-color: red;
+            border-radius: 50%;
+            animation: twinkle 1.5s infinite ease-in-out;
+        }
+        .light:nth-child(2) { background-color: yellow; animation-delay: 0.3s; }
+        .light:nth-child(3) { background-color: green; animation-delay: 0.6s; }
+        .light:nth-child(4) { background-color: blue; animation-delay: 0.9s; }
+        .light:nth-child(5) { background-color: purple; animation-delay: 1.2s; }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        /* Welcome Screen */
+        .welcome-message {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2.5em;
+            color: #ff6363;
+            opacity: 1;
+            animation: fadeOutWelcome 3s 0s forwards;
+        }
+
+        @keyframes fadeOutWelcome {
+            0% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+                transform: translate(-50%, -60%);
+            }
+        }
+
+        /* Ensure the message disappears before the main content */
+        .content {
+            display: none;
+            opacity: 0;
+            animation: showContent 3s 3s forwards;
+        }
+
+        @keyframes showContent {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Welcome Message -->
+    <div class="welcome-message">
+        Merry Christmas! 🎄
+    </div>
+
+    <!-- Main Content (hidden initially) -->
+    <div class="content">
+        <!-- Background GIFs -->
+        <div id="background"></div>
+        <div id="background-right"></div>
+
+        <!-- Christmas Lights -->
+        <div class="lights">
+            <div class="light"></div>
+            <div class="light"></div>
+            <div class="light"></div>
+            <div class="light"></div>
+            <div class="light"></div>
+        </div>
+
+        <h1>Merry Christmas, Love!</h1>
+        <p>You light up my life like a Christmas tree. Here's to many more holidays together! My Dearest Love,
+
+As Christmas comes around, my heart feels fuller than ever because I have you in my life. Though we may be miles apart, my love for you grows stronger each day, and the distance only makes my heart ache for you more. I think about all the moments we’ve shared and all the memories we've created, and I know in my heart that this is just the beginning of many more to come.
+
+You are my Christmas magic, my joy, and my everything. The twinkling lights, the snowflakes falling from the sky, and the warmth of the season all remind me of you—how you light up my world and fill my days with happiness. I’m so grateful for your love and the bond we share, no matter the miles between us.
+
+This holiday season, I want you to know just how special you are to me. You are the best part of my life, and my heart beats only for you. I can’t wait to be with you again, to hold you close, and to create more beautiful memories together.
+
+Merry Christmas, my love. You are my home, my heart, and my forever.
+
+With all my love,  
+Your baby Antonio</p>
+        
+        <!-- Photo Section with Image -->
+        <div class="photo">
+            <!-- Replace 'your-image-url-here' with the actual image URL -->
+            <img src="C:\Users\Tonkis\Downloads\DALL·E 2024-12-27 13.57.29 - A cute, playful pink character with black hair, wearing a Santa hat. The character is of Asian descent and has a silly, joyful expression. She is surr.webp" alt="Our Christmas Photo" style="max-width: 100%; height: auto;">
+        </div>
+
+        <p>Here’s a special song for you: <a href="https://youtu.be/ekr2nIex040?si=BqDlIM4DMF-188lc" target="_blank">Click to Listen</a></p>
+
+        <!-- Snowflakes Container -->
+        <div id="snowflakes"></div>
+    </div>
+
+    <script>
+        // Generate random snowflakes
+        const snowflakesContainer = document.getElementById('snowflakes');
+
+        function createSnowflake() {
+            const snowflake = document.createElement('div');
+            snowflake.classList.add('snowflake');
+            snowflake.textContent = '❄️';
+
+            // Random horizontal position
+            snowflake.style.left = Math.random() * 100 + 'vw';
+            // Random size
+            snowflake.style.fontSize = Math.random() * 1.5 + 1 + 'em';
+            // Random fall duration
+            snowflake.style.animationDuration = Math.random() * 3 + 2 + 's';
+
+            snowflakesContainer.appendChild(snowflake);
+
+            // Remove snowflake after animation ends
+            setTimeout(() => {
+                snowflake.remove();
+            }, 5000);
+        }
+
+        // Create snowflakes continuously
+        setInterval(createSnowflake, 300);
+
+        // Show content after welcome message fades out
+        window.onload = () => {
+            setTimeout(() => {
+                // After the welcome message fades, show the main content
+                document.querySelector('.content').style.display = 'block';
+            }, 3000);  // Wait 3 seconds to match the fade out time of the welcome message
+        };
+    </script>
+</body>
+</html>
